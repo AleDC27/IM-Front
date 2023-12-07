@@ -22,6 +22,7 @@ export default function InstructionTwo() {
   const [submiting, setSubmiting] = useState(false);
   const [error, setError] = useState(false);
   const id = useSelector((state) => state.user_internal.comerceId);
+  console.log(id)
   const dispatch = useDispatch();
   useEffect(() => {
     if (file !== null) {

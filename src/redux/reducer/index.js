@@ -1,4 +1,4 @@
-import { GET_ORDERS, LOGIN_ACTION,LOGIN_ACTION_GOOGLE,MENU_ACTIVE,LOCAL_OPEN_VALUE,OPEN_LOCAL,CLOSED_LOCAL, GET_ALL_POS } from "../actions/actionTypes";
+import { CLEAR_STATE,GET_ORDERS, LOGIN_ACTION,LOGIN_ACTION_GOOGLE,MENU_ACTIVE,LOCAL_OPEN_VALUE,OPEN_LOCAL,CLOSED_LOCAL, GET_ALL_POS } from "../actions/actionTypes";
 import jwtDecode from "jwt-decode";
 
 const initalState = {
@@ -20,6 +20,9 @@ const initalState = {
 
 export const rootReducer = (state = initalState, { type, payload }) => {
   switch (type) {
+    //Clear State
+    case CLEAR_STATE:
+      return state; // Restablece el estado a los valores iniciales
     //loguin 
     case LOGIN_ACTION: {
       const data = jwtDecode(payload.data.token);

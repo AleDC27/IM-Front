@@ -14,3 +14,6 @@ export const POST_NEW_IMG = "POST_NEW_IMG";
 
 //////////////////* Order Action Type *///////////////////////////
 export const GET_ORDERS="GET_ORDERS";
+
+//////////////////* Clear State *///////////////////////////
+export const CLEAR_STATE="CLEAR_STATE";

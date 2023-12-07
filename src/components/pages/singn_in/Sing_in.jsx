@@ -6,16 +6,24 @@ import LineText from "../../atom/LineText/LineText";
 import useFirebase from "../../../firebase/firebase.config";
 import { useTranslation } from "react-i18next";
 import { Select } from "semantic-ui-react";
+import { clearState } from "../../../redux/actions";
+import { useDispatch,useSelector } from "react-redux";
 
 export default function Sing_in() {
   const [error, setError] = useState(false);
   const [t, i18n] = useTranslation("global");
   const { signInWithGoogle } = useFirebase(setError);
+  const [pageReloaded, setPageReloaded] = useState(false);
+  const dispatch=useDispatch();
+  const comerceId=useSelector(state=>state.user_internal)
+  console.log(comerceId)
+
+
   useEffect(() => {
-    // Borra el localStorage al cargar el componente
-    localStorage.clear();
-    i18n.changeLanguage("es");
-  }, []);
+
+      localStorage.clear();
+      i18n.changeLanguage("es");
+  }, [i18n]);
 
   const optionLan = [
     { key: "es", value: "es", text: "Español" },
@@ -27,11 +35,9 @@ export default function Sing_in() {
   ];
 
   const handleLanguage = (e, { value }) => {
-    /*     const {value}=e.target; */
-/*     dispatch(selectLanguage(value));
-    i18n.changeLanguage(value); */
     i18n.changeLanguage(value);
     localStorage.setItem("Lang", value);
+    dispatch(clearState())
   };
 
   return (
@@ -69,4 +75,4 @@ export default function Sing_in() {
       </>
     </main>
   );
-}
+};

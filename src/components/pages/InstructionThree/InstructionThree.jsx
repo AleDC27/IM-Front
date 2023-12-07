@@ -11,12 +11,15 @@ import { useTranslation } from "react-i18next";
 import Container from "../../atom/container/Container";
 import { useDispatch } from "react-redux";
 import { postImg } from "../../../redux/actions";
+import { useSelector } from "react-redux";
 
 export default function InstructionThree() {
   const [t,i18n]=useTranslation("global");
   const [file, setFile] = useState(null);
   const [image, setImage] = useState(null);
   const [submiting, setSubmiting] = useState(false);
+  const comerceId=useSelector(state=>state.user_internal)
+  console.log(comerceId)
 
   const clearImage = () => {
     setFile(null);
@@ -25,7 +28,7 @@ export default function InstructionThree() {
 
   const handleClick = () => {
     //action to upload image
-   postImg(file);
+   //postImg(file);
   }
 
   return (
@@ -74,7 +77,7 @@ export default function InstructionThree() {
         <InstructionButton
           helpText={t("instructions.button.i need help")}
           text={t("instructions.button.continue")}
-          path={file &&  "/instructions/onDemand"}
+          path={/* file &&  */ "/instructions/onDemand"}
           handleClick={handleClick}
         />
       </main>

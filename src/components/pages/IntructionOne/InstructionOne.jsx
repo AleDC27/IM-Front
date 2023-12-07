@@ -7,9 +7,12 @@ import InstructionButton from "../../molecules/InstructionButton/InstructionButt
 import InstructionContainer from "../../atom/InstructionContainer/InstructionContainer";
 import { useTranslation } from "react-i18next";
 import Container from "../../atom/container/Container";
+import { useSelector } from "react-redux";
 
 export default function InstructionOne() {
   const [t,i18n]=useTranslation("global");
+  const id = useSelector((state) => state.user_internal);
+  console.log(id)
 
   return (
     <Container marginTop >
