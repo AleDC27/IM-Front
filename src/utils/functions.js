@@ -5,7 +5,6 @@ export const getDateCurrent=()=>{
   let month = date.getMonth() + 1;
   let day = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate();
   let dateCurrent = `${date.getFullYear()}-${month}-${day}`;
-/*   console.log(dateCurrent,date.getHours()) */
   return dateCurrent
 }
 

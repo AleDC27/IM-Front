@@ -59,7 +59,8 @@ export default function InstructionThree() {
             />
             {file !== null && (
               <div className={s.uploadedFile}>
-                <LineText text={"Logo.JPG"} secundary={true} />
+                {/* <LineText text={"Logo.JPG"} secundary={true} /> */}
+                <img src={URL.createObjectURL(file)} alt="" height={"90px"} />
                 <div className={s.icons}>
                   <XIcon
                     style={{ height: "24px", width: "24px" }}
