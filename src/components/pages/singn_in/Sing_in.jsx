@@ -17,9 +17,8 @@ export default function Sing_in() {
   const dispatch=useDispatch();
   const comerceId=useSelector(state=>state.user_internal)
 
-
   useEffect(() => {
-      dispatch(clearState())
+    dispatch(clearState())
       localStorage.clear();
       i18n.changeLanguage("es");
   }, [i18n]);
