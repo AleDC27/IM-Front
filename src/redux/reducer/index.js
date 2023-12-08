@@ -22,7 +22,11 @@ export const rootReducer = (state = initalState, { type, payload }) => {
   switch (type) {
     //Clear State
     case CLEAR_STATE:
-      return state; // Restablece el estado a los valores iniciales
+      return {
+        ...state,
+        user_internal: {},
+        menuActive: []
+      }; // Restablece el estado a los valores iniciales
     //loguin 
     case LOGIN_ACTION: {
       const data = jwtDecode(payload.data.token);
