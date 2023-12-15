@@ -78,13 +78,12 @@ export function postMenu(menu,comercio, id) {
           `/menu/menuUp/${id}`,
           { commerceJSON: comercio, menuJSON: menu }
         );
-        console.log("entro al primero",response)
+        console.log(response);
       }else {
         const response = await axios.post(
           `/menu/menuUp/0`,
           { commerceJSON: comercio, menuJSON: menu }
         );
-        console.log("entro al segundo",response)
       }
     } catch (error) {
       return error;
