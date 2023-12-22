@@ -126,7 +126,8 @@
       "payment market": {
         "title": "Mercato Pago",
         "input_1": "Token",
-        "input_2": "Key"
+        "input_2": "Key",
+        "input_3": "Alias"
       }
     },
     "generator qr":{

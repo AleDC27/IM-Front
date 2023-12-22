@@ -24,6 +24,10 @@ export default function Sing_in() {
       i18n.changeLanguage("es");
   }, [i18n]);
 
+  useEffect(()=>{
+    localStorage.setItem("Lang", "es");
+  },[])
+
   const optionLan = [
     { key: "es", value: "es", text: "Español" },
     { key: "en", value: "en", text: "English" },

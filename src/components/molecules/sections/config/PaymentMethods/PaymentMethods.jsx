@@ -1,4 +1,4 @@
-import ConfigForm from "../../../configForm/ConfigForm";
+import ConfigFormMp from "../../../configForm/ConfigForm";
 import { useTranslation } from "react-i18next";
 import Switch from "react-switch";
 import { useState, useEffect } from "react";
@@ -45,6 +45,8 @@ export default function PaymentMethods() {
       setCash(cashValue);
     }
   }, [paymentMethods]);
+
+const method=(arg)=> paymentMethods.find(cur=>cur.type===arg);
 
   const handlePaymentMethods = async (change,newChange,paymentMethods,newset) => {
     if (change) return; // Evita múltiples clics mientras se está realizando una solicitud
@@ -99,10 +101,12 @@ export default function PaymentMethods() {
         </>
       )}
       {mp && mp.active && !loading ? (
-        <ConfigForm
+        <ConfigFormMp
           subTitle_text={t("config.payment market.title")}
           label_text_1={t("config.payment market.input_1")}
           label_text_2={t("config.payment market.input_2")}
+          label_text_3={t("config.payment market.input_3")}
+          method={method("mercadopago")}
         />
       ) : null}
     </section>
