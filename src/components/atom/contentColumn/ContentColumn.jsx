@@ -12,12 +12,14 @@ export default function ContentColumn({
   marginBottom,
   boxShadow,
   borderRadius,
-  padding
+  padding,
+  onClick
 }) {
   //space-around;space-between;space-evenly;center;
   return (
     <div
       className={s.contentColumn}
+      onClick={onClick}
       style={{
         justifyContent,
         width,

@@ -56,7 +56,6 @@ export const rootReducer = (state = initalState, { type, payload }) => {
       const user_internal = {
         token: payload.data.token,
         id: data.id,
-        name:data.name,
         phone: data.phone,
         email: data.email,
         comerceId: data.commerceId,

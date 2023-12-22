@@ -7,6 +7,8 @@ import LargeButton from "../../../atom/LargeButton/LargeButton";
 import LogoComerce from "../../sections/config/logoComerce/LogoComerce";
 import s from "./layoutConfig.module.scss";
 import CartelPlanUno from "../../CartelPlanUno/CartelPlanUno";
+import CartelPlanDos from "../../cartelPlan2/CartelPlanDos";
+import Separator from "../../../atom/separator/Separator";
 
 export default function LayoutConfig() {
   const [t, i18n] = useTranslation("global");
@@ -60,7 +62,12 @@ export default function LayoutConfig() {
         <CartelPlanUno
           title={t("plan 1.cartel plan 1.title")}
           text_1={'Podras configurar para cobrar a traves de mercado pago'}
-          width={"520px"}
+          width={"90%"}
+        />
+        <Separator height={"10px"} />
+        <CartelPlanDos
+        title={"Pasar a plan 2"}
+        width={"90%"}
         />
       </section>
       {optionToComponent[selectedOption]}

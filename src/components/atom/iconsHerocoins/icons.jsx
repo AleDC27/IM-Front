@@ -280,7 +280,7 @@ export function ChevronLeft({ heigth, onClick }) {
   );
 }
 
-export function Eye({ heigth, onClick }) {
+export function Eye({ heigth, onClick,className }) {
   let eyeStyle = {
     cursor: "pointer",
   };
@@ -291,7 +291,7 @@ export function Eye({ heigth, onClick }) {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className="w-6 h-6"
+      className={className?className:"w-6 h-6"}  
       height={heigth}
       onClick={onClick}
       color="#212121"
@@ -311,7 +311,7 @@ export function Eye({ heigth, onClick }) {
   );
 }
 
-export function Eye_slash({ heigth, onClick }) {
+export function Eye_slash({ heigth, onClick, className }) {
   let eyeStyle = {
     cursor: "pointer",
   };
@@ -322,7 +322,7 @@ export function Eye_slash({ heigth, onClick }) {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className="w-6 h-6"
+      className={className?className:"w-6 h-6"} 
       height={heigth}
       onClick={onClick}
       color="#212121"

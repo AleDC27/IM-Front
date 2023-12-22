@@ -1,18 +1,31 @@
 @import "../../../scss/colors.scss";
 @import "../../../scss/typography.scss";
-label{
-    font-size: $paragraph;
+
+label {
+    font-size: 21px;
     color: $text-primary;
 }
-input{
-    width: 85%;
-    max-height: 44px;
+
+input {
+    width: 80%;
+    max-height: 64px;
     display: flex;
     justify-content: space-between;
-    padding: 10px;
-    padding-right: 17px;
+    padding: 5px 50px 5px 10px;
     border-radius: $border-secondary-radius;
     background-color: $color-sixth;
     margin: 5px;
     border: $border;
+}
+
+.inputContainer {
+    position: relative;
+}
+
+.eyesContainer{
+    position: absolute;
+    top: 50%;
+    right: 22%; // Puedes ajustar este valor según sea necesario
+    transform: translateY(-50%);
+    cursor: pointer;
 }

@@ -55,10 +55,14 @@ export default function File({
     maxFiles: 1,
   });
 
-  const filePath = "/ExcelFile/I-Menu.xlsx";
+  //const filePath = "/ExcelFile/I-Menu.xlsx";
+  const filePath_EN = "/ExcelFile/I-Menu.xlsx";
+  const filePath_ES = "/ExcelFile/I-Menu_ES.xlsx";
+  const lang=localStorage.getItem('Lang');
+  console.log(lang)
 
   return typeIcon === "download" ? (
-    <a className={s.file} href={filePath} download={"I-Menu Template.xlsx"}>
+    <a className={s.file} href={lang==="es"?filePath_ES:filePath_EN} download={"I-Menu Template.xlsx"}>
       <ArrowDownload className={s.icon} />
       <Title text={text} />
     </a>
