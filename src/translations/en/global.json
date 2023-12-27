@@ -187,6 +187,10 @@
       "text_1":"You will be able to see important metrics for your business",
       "text_2":"We are working to provide you with a better service"
     },
+    "history":{
+      "text_1":"Don't do it yet",
+      "text_2":"received orders"
+    },
     "text_1":"You haven't yet",
     "text_2":"received orders"
   }
