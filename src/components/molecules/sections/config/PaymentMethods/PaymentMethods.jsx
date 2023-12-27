@@ -9,7 +9,7 @@ import axios from "axios";
 import Loading from "../../../../atom/loading/Loading";
 import { ReactComponent as MpLogo } from "../../../../../assets/MpLogo.svg";
 import { Banknotes } from "../../../../atom/iconsHerocoins/icons";
-//import { ReactComponent as CashLogo } from "../../../../../assets/cash.png";
+import CryptoJS from "crypto-js";
 
 export default function PaymentMethods() {
   const [t, i18n] = useTranslation("global");
@@ -47,6 +47,12 @@ export default function PaymentMethods() {
   }, [paymentMethods]);
 
 const method=(arg)=> paymentMethods.find(cur=>cur.type===arg);
+
+/* const mercadoPago = useState({
+  publicKey:  bcrypt.hashSync(method.publicKey, 10) || "",
+  accesToken: bcrypt.hashSync(method.accesToken, 10) || "",
+  alias: bcrypt.hashSync(method.alias, 10) || "",
+}); */
 
   const handlePaymentMethods = async (change,newChange,paymentMethods,newset) => {
     if (change) return; // Evita múltiples clics mientras se está realizando una solicitud
