@@ -2,57 +2,81 @@ import React from "react";
 import s from "./configForm.module.scss";
 import SubTitle from "../../atom/subTitle/SubTitle";
 import LabelInput from "../../atom/labelInput/LabelInput";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Button } from "semantic-ui-react";
 import Separator from "../../atom/separator/Separator";
 import axios from "axios";
+import bcrypt from "bcryptjs-react";
 import CryptoJS from "crypto-js";
-import jwtDecode from "jwt-decode";
 
 export default function ConfigFormMp({
   subTitle_text,
   label_text_1,
   label_text_2,
   label_text_3,
-  //comerceId,
   method,
 }) {
   console.log(method)
   const idMethod = method.id;
+const keysecret0 ="esta clave deveria venir por bodi";
+  const decrypt = (ciphertext) => {
+    const bytes = CryptoJS.AES.decrypt(ciphertext, keysecret0);
+    const originalValue = bytes.toString(CryptoJS.enc.Utf8);
+    return originalValue;
+  };
+
   
-  const [mp, setmp] = useState({
-    publicKey: method.publicKey || "",
+/*   const [mp, setmp] = useState({
+    publicKey:  method.publicKey || "",
     accesToken: method.accesToken|| "",
     alias: method.alias || "",
+    commerceId:method.commerceId
+  }); */
+
+    const [mp, setmp] = useState({
+    publicKey: method.publicKey? decrypt(method.publicKey) : "",
+    accesToken:method.accesToken? decrypt(method.accesToken) : "",
+    alias: method.alias? decrypt(method.alias) : "",
+    commerceId:method.commerceId
   });
-  console.log(mp);
+  console.log(mp)
+
+
+/*   const [mp, setmp] = useState({
+    publicKey: method.publicKey? bcrypt.hashSync(method.publicKey, 10) : "",
+    accesToken:method.accesToken? bcrypt.hashSync(method.accesToken, 10) : "",
+    alias: method.alias? bcrypt.hashSync(method.alias, 10) : "",
+  });
+ */
+
   const handleInputChangePassword = (e) => {
     setmp({ ...mp, [e.target.name]: e.target.value });
   };
 
-/*   const hashValue = (value) => {
-    // Utilizar SHA-256 para hashear los valores
-    return CryptoJS.SHA256(value).toString(CryptoJS.enc.Hex);
-  }; */
-
-  //const publicKey=jwtDecode(method.publicKey) || "nada";
-  //console.log(publicKey)
-  //const token=jwtDecode(method.accesToken);
-  //const token=method.token;
-  //console.log(token)
-  //const alias=jwtDecode(method.alias);
-  //console.log(publicKey,token,alias);
-
+  const encrypt = (value) => {
+    const ciphertext = CryptoJS.AES.encrypt(value, keysecret0).toString();
+    return ciphertext;
+  };
   
   const HandleUpDateMp = async () => {
     try {
+      const hashedMp = {
+        publicKey: encrypt(mp.publicKey),
+        accesToken: encrypt(mp.accesToken),
+        alias: encrypt(mp.alias),
+        commerceId:method.commerceId
+      };
 /*       const hashedMp = {
-        publicKey: hashValue(mp.publicKey),
-        accesToken: hashValue(mp.accesToken),
-        alias: hashValue(mp.alias),
+        publicKey: await bcrypt.hash(mp.publicKey, 10),
+        accesToken: await bcrypt.hash(mp.accesToken, 10),
+        alias: await bcrypt.hash(mp.alias, 10),
+        commerceId:method.commerceId
       }; */
-      //console.log(hashedMp);
-      const result = await axios.put(`payment/update/${idMethod}`, mp);
+      console.log(hashedMp);
+      const result = await axios.put(`payment/updateKeys/${idMethod}`,hashedMp);
+   /*    const params = new URLSearchParams(hashedMp);
+
+      const result = await axios.put(`payment/updateKeys/${idMethod}?${params.toString()}`);     */
       console.log("enviado");
       console.log("Datos enviados correctamente:", result.data);
     } catch (error) {
