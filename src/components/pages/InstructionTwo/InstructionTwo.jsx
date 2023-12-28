@@ -501,7 +501,7 @@ export default function InstructionTwo() {
     );
   };
    */
-
+console.log(comercio)
   const formattedCommerce = () => {
     //! Agrego el nuevo formato de comercio con instrucciones actualizadas.
     let commerce = {
@@ -509,15 +509,16 @@ export default function InstructionTwo() {
       tipoDeComida: "variada",
       neighborhood: "Sin asignar",
       emailEmployeer: "",
-      name: comercio[3].__EMPTY_1,
-      address: comercio[5].__EMPTY_1,
-      city: comercio[5].__EMPTY_2,
-      province: comercio[5].__EMPTY_3,
-      mesas: comercio[6].__EMPTY_1,
-      firstNameEmployeer: comercio[8].__EMPTY_1,
-      lastNameEmployeer: comercio[9].__EMPTY_1,
-      phono: comercio[10].__EMPTY_1,
-      googleUserEmployeer: comercio[11].__EMPTY_1,
+      name: comercio[3].__EMPTY_2,
+      address: comercio[5].__EMPTY_2,
+      city: comercio[5].__EMPTY_3,
+      province: comercio[5].__EMPTY_4,
+      mesas: comercio[6].__EMPTY_2,
+      firstNameEmployeer: comercio[8].__EMPTY_2,
+      lastNameEmployeer: comercio[9].__EMPTY_2,
+      phono: comercio[10].__EMPTY_2,
+      googleUserEmployeer: comercio[11].__EMPTY_2,
+      emailEmployeer:comercio[11].__EMPTY_2
     };
     return commerce
 
