@@ -1,5 +1,5 @@
 import axios from "axios";
-import { CLEAR_STATE,LOCAL_OPEN_VALUE,GET_ORDERS,LOGIN_ACTION,LOGIN_ACTION_GOOGLE,MENU_ACTIVE,OPEN_LOCAL,CLOSED_LOCAL, GET_ALL_POS, POST_NEW_IMG} from "./actionTypes";
+import { CLEAR_STATE,LOCAL_OPEN_VALUE,GET_ORDERS,LOGIN_ACTION,LOGIN_ACTION_GOOGLE,MENU_ACTIVE,OPEN_LOCAL,CLOSED_LOCAL, GET_ALL_POS,POST_MENU, POST_NEW_IMG} from "./actionTypes";
 
 //limpiamos redux
 
@@ -70,7 +70,6 @@ export function postMenu(menu,comercio, id) {
   console.log(menu,"menu transformado")
   console.log(comercio,"comercio transformado")
   return async function (dispatch, getState) {
-    console.log(id)
     try {
       id = getState().user_internal.comerceId;
       if (id){
@@ -79,12 +78,16 @@ export function postMenu(menu,comercio, id) {
           { commerceJSON: comercio, menuJSON: menu }
         );
         console.log("entro al primero",response)
-      }else {
+      }else{
         const response = await axios.post(
           `/menu/menuUp/0`,
           { commerceJSON: comercio, menuJSON: menu }
         );
         console.log("entro al segundo",response)
+        return dispatch({
+          type:POST_MENU,
+          payload:response.data.CommerceId
+        })
       }
     } catch (error) {
       return error;

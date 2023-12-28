@@ -420,11 +420,11 @@ export default function InstructionTwo() {
         // m["description"] = m["Description"] || m["Descripción"];
         m["description"] = m["DESCRIPTION"] || m["DESCRIPCIÓN"];
         // m["discount"] = m["Discount"] || m["Descuento"];
-        m["discount"] = null;
+        m["discount"] = 0;//null;
         // m["promotion"] = m["Promotion"] || m["Promoción"];
-        m["promotion"] = null;
+        m["promotion"] = 0//null;
         // m["surcharge"] = m["Surcharge"] || m["Recargo"];
-        m["surcharge"] = null;
+        m["surcharge"] = 0;//null;
         // m["menuType"] = m["Menu type"] || m["Tipo de menu"];
         m["menuType"] = "variado";
         // m["validity"] = m["Validity"] || m["Validez"];
@@ -504,22 +504,24 @@ export default function InstructionTwo() {
 console.log(comercio)
   const formattedCommerce = () => {
     //! Agrego el nuevo formato de comercio con instrucciones actualizadas.
-    let commerce = {
+    let commerce = [{
       workSchedule: "09:00 a 17:00",
       tipoDeComida: "variada",
       neighborhood: "Sin asignar",
-      emailEmployeer: "",
-      name: comercio[3].__EMPTY_2,
+      //emailEmployeer: "",
+      name: comercio[3].__EMPTY_2 ||comercio[3].__EMPTY_1,
       address: comercio[5].__EMPTY_2,
       city: comercio[5].__EMPTY_3,
-      province: comercio[5].__EMPTY_4,
-      mesas: comercio[6].__EMPTY_2,
-      firstNameEmployeer: comercio[8].__EMPTY_2,
-      lastNameEmployeer: comercio[9].__EMPTY_2,
-      phono: comercio[10].__EMPTY_2,
-      googleUserEmployeer: comercio[11].__EMPTY_2,
-      emailEmployeer:comercio[11].__EMPTY_2
-    };
+      state: comercio[5].__EMPTY_4,
+      mesas: comercio[6].__EMPTY_2 || comercio[6].__EMPTY_1,
+      firstNameEmployeer: comercio[8].__EMPTY_2 || comercio[8].__EMPTY_1,
+      lastNameEmployeer: comercio[9].__EMPTY_2 || comercio[9].__EMPTY_1 ,
+      phono: comercio[10].__EMPTY_2 || comercio[10].__EMPTY_1,
+      googleUserEmployeer: comercio[11].__EMPTY_2 || comercio[11].__EMPTY_1 ,
+      emailEmployeer:comercio[11].__EMPTY_2 || comercio[11].__EMPTY_1,
+      CP:"",
+      country:"Argentina",
+    }];
     return commerce
 
     
@@ -657,7 +659,8 @@ console.log(comercio)
       // console.log("Codigo postal: ", comercio[8].__EMPTY_4);
       // console.log("Cantidad de mesas: ", comercio[9].__EMPTY_1);
       //*envio el menu, el comercio y el id
-      dispatch(postMenu(menu, comercioFormateado, id));
+      dispatch(postMenu (  menu, comercioFormateado, id))
+/*       .then(()=>{return history.push("/instructions/image")}).catch(()=>console.log("Erro al subir menu")) */
     // }
   };
 

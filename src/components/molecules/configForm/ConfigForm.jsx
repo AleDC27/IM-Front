@@ -6,7 +6,6 @@ import { useState } from "react";
 import { Button } from "semantic-ui-react";
 import Separator from "../../atom/separator/Separator";
 import axios from "axios";
-import bcrypt from "bcryptjs-react";
 import CryptoJS from "crypto-js";
 
 export default function ConfigFormMp({
@@ -25,14 +24,6 @@ const keysecret0 ="esta clave deveria venir por bodi";
     return originalValue;
   };
 
-  
-/*   const [mp, setmp] = useState({
-    publicKey:  method.publicKey || "",
-    accesToken: method.accesToken|| "",
-    alias: method.alias || "",
-    commerceId:method.commerceId
-  }); */
-
     const [mp, setmp] = useState({
     publicKey: method.publicKey? decrypt(method.publicKey) : "",
     accesToken:method.accesToken? decrypt(method.accesToken) : "",
@@ -40,14 +31,6 @@ const keysecret0 ="esta clave deveria venir por bodi";
     commerceId:method.commerceId
   });
   console.log(mp)
-
-
-/*   const [mp, setmp] = useState({
-    publicKey: method.publicKey? bcrypt.hashSync(method.publicKey, 10) : "",
-    accesToken:method.accesToken? bcrypt.hashSync(method.accesToken, 10) : "",
-    alias: method.alias? bcrypt.hashSync(method.alias, 10) : "",
-  });
- */
 
   const handleInputChangePassword = (e) => {
     setmp({ ...mp, [e.target.name]: e.target.value });

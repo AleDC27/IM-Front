@@ -21,40 +21,30 @@ export default function InstructionThree() {
   const [submiting, setSubmiting] = useState(false);
   const [redirectToNextPage, setRedirectToNextPage] = useState(false);
   const comerceId=useSelector(state=>state.user_internal.comerceId);
-
+  const idCommerceNew=useSelector(state=>state.idCommerceNew);
+  console.log(idCommerceNew)
   const clearImage = () => {
     setFile(null);
     setImage(null);
   };
 
-/*   const  handleClick= async(img)=> {
-    console.log(img)
-    try {
-      let response = await axios.post(
-        "https://tenkiweb.com/imenu/img/",
-        img,
-        {
-          headers: {
-            "Access-Control-Allow-Origin": "http://127.0.0.1:5173/",
-          },
-        }
-      );
-      console.log(response);
-    } catch (error) {
-      console.error(error);
-    }
-  } */
 
-  //firebase
   const handleClick=async ()=>{
     try {
       //throw new Error('Fallo interbo intente mas tarde')
-      const result=await uploadFile(file,comerceId.toString())
-      setRedirectToNextPage(true);
+      if(comerceId){
+        const result=await uploadFile(file,comerceId.toString())
+        setRedirectToNextPage(true);
+        console.log(result)
+      }else{
+        const result=await uploadFile(file,idCommerceNew.toString())
+        setRedirectToNextPage(true);
+        console.log(result)
+      }
       console.log(redirectToNextPage)
-      console.log(result)
     } catch (error) {
       console.log(error)
+      console.log("error en la imagen")
       alert(error)
     }
   }
@@ -105,8 +95,8 @@ export default function InstructionThree() {
         <InstructionButton
           helpText={t("instructions.button.i need help")}
           text={t("instructions.button.continue")}
-          //path={redirectToNextPage ? "/instructions/onDemand" : null}
           path={redirectToNextPage ? "/instructions/onDemand" : null}
+          //path={"/instructions/onDemand"}
           handleClick={() => handleClick(file)}
         />
       </main>
