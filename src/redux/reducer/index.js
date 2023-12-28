@@ -1,4 +1,4 @@
-import { CLEAR_STATE,GET_ORDERS, LOGIN_ACTION,LOGIN_ACTION_GOOGLE,MENU_ACTIVE,LOCAL_OPEN_VALUE,OPEN_LOCAL,CLOSED_LOCAL, GET_ALL_POS } from "../actions/actionTypes";
+import { POST_MENU, CLEAR_STATE,GET_ORDERS, LOGIN_ACTION,LOGIN_ACTION_GOOGLE,MENU_ACTIVE,LOCAL_OPEN_VALUE,OPEN_LOCAL,CLOSED_LOCAL, GET_ALL_POS } from "../actions/actionTypes";
 import jwtDecode from "jwt-decode";
 
 const initalState = {
@@ -9,7 +9,7 @@ const initalState = {
   localOpenValue:localStorage.getItem("localOpenValue")
   ?JSON.parse(localStorage.getItem("localOpenValue"))
   :null,
-  id: 1,
+  idCommerceNew: null,
   local: true,
   orders: [],
   menuActive:localStorage.getItem("menuActivo")
@@ -107,7 +107,15 @@ export const rootReducer = (state = initalState, { type, payload }) => {
       }
     }
 
-
+    case POST_MENU:{
+      console.log(payload)
+      let idTheNewCommerce=payload;
+      localStorage.setItem("user_internal", idTheNewCommerce);
+      return{
+        ...state,
+        idCommerceNew:idTheNewCommerce
+      }
+    }
     //busca todas las ordenes
     case GET_ORDERS:
       //esta linea solo es para forkear
