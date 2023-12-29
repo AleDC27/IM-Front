@@ -389,13 +389,25 @@ export default function InstructionTwo() {
     }
   }, [comercio]);
 
-  function emojiToUnicode(emoji) {
+/*   function emojiToUnicode(emoji) {
     const codeUnits = [];
-    for (let i = 0; i < emoji.length; i++) {
+    for (let i = 0; i < emoji.length ; i++) {
       codeUnits.push(emoji.charCodeAt(i).toString(16).toUpperCase());
     }
     return `U+${codeUnits.join(" U+")}`;
+  } */
+  function emojiToUnicode(emoji) {
+    const codeUnits = [];
+    if(emoji=== undefined){
+      return "U+D83C U+DF54";
+    }
+    for (let i = 0; i < emoji.length; i++) {
+      codeUnits.push(emoji.charCodeAt(i).toString(16).toUpperCase());
+    }
+  
+    return `U+${codeUnits.join(" U+")}`;
   }
+  
 
   const formattedMenu = () => {
     let objAditionals = { additional: null };
@@ -406,8 +418,8 @@ export default function InstructionTwo() {
     setMenu(
       menu.map((m) => {
         //*comentados los campos del template anterior
-        if (m.Precio&&m.Precio === undefined) m.Precio = null;
-        if (m.Cost&& m.Cost === undefined) m.Cost = null;
+        if (m.Precio&&m.Precio === undefined) m.Precio = 0;
+        if (m.Cost&& m.Cost === undefined) m.Cost = 0;
         m.Emoji = emojiToUnicode(m.Emoji);
         // m["photo"] = m["Emoji"];
         m["photo"] = m["Emoji"];
@@ -416,7 +428,7 @@ export default function InstructionTwo() {
         // m["name"] = m["Name product"] || m["Nombre de productos"];
         m["name"] = m["PRODUCT"] || m["PRODUCTO"];
         // m["cost"] = m["Cost"] || m["Precio"];
-        m["cost"] = m["COST"] || m["PRECIO"];
+        m["cost"] = m["COST"] || m["PRECIO"] || "$0";
         // m["description"] = m["Description"] || m["Descripción"];
         m["description"] = m["DESCRIPTION"] || m["DESCRIPCIÓN"];
         // m["discount"] = m["Discount"] || m["Descuento"];
@@ -713,6 +725,7 @@ console.log(comercio)
           text={t("instructions.button.continue")}
           path={menu && !error && "/instructions/image"}
           handleClick={handleClick}
+          //handleClick={(e)=>handleClick(e)}
         />
       </main>
     </InstructionContainer>

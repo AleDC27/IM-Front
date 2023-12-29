@@ -61,20 +61,14 @@ export default function LogoComerce() {
 
   return (
     <section>
-      {/*           <MenuStep
-            text={t("menu.logo local.file")}
-            icon_1="ArrowDownload"
-            className="menu_option"
-            icon_2=""
-            buttom={true}
-          /> */}
       <ContentRow justifyContent="center" width="80%">
-        {!imgURL ? (
-          <Loading />
-        ) : (
+      {isLoading && <Loading />} {/* Mostrar Loading mientras se espera respuesta */}
+        {!isLoading && !imgURL && <Title text={"Sin logo disponible"} />} {/* Mostrar Title si no hay imagen */}
+        {!isLoading && imgURL && (
           <img
             src={imgURL}
             style={{ maxWidth: "50%", border: "2px solid #000" }}
+            alt="Logo"
           />
         )}
       </ContentRow>
