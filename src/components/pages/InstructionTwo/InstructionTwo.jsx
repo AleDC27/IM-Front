@@ -513,6 +513,7 @@ export default function InstructionTwo() {
     );
   };
    */
+  
 console.log(comercio)
   const formattedCommerce = () => {
     let tablespordefecto=10;
