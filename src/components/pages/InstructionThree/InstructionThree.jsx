@@ -9,8 +9,6 @@ import InstructionButton from "../../molecules/InstructionButton/InstructionButt
 import s from "./InstructionThree.module.scss";
 import { useTranslation } from "react-i18next";
 import Container from "../../atom/container/Container";
-import axios from "axios";
-//import { postImg } from "../../../redux/actions";
 import { useSelector } from "react-redux";
 import { uploadFile } from "../../../firebase/firebase.config";
 
@@ -19,7 +17,6 @@ export default function InstructionThree() {
   const [file, setFile] = useState(null);
   const [image, setImage] = useState(null);
   const [submiting, setSubmiting] = useState(false);
-  const [redirectToNextPage, setRedirectToNextPage] = useState(false);
   const comerceId=useSelector(state=>state.user_internal.comerceId);
   const idCommerceNew=useSelector(state=>state.idCommerceNew);
   console.log(idCommerceNew)
@@ -33,15 +30,14 @@ export default function InstructionThree() {
     try {
       //throw new Error('Fallo interbo intente mas tarde')
       if(comerceId){
+        console.log("tiene id")
         const result=await uploadFile(file,comerceId.toString())
-        setRedirectToNextPage(true);
         console.log(result)
       }else{
+        console.log("no tiene id")
         const result=await uploadFile(file,idCommerceNew.toString())
-        setRedirectToNextPage(true);
         console.log(result)
       }
-      console.log(redirectToNextPage)
     } catch (error) {
       console.log(error)
       console.log("error en la imagen")
@@ -95,7 +91,7 @@ export default function InstructionThree() {
         <InstructionButton
           helpText={t("instructions.button.i need help")}
           text={t("instructions.button.continue")}
-          path={redirectToNextPage ? "/instructions/onDemand" : null}
+          path={"/instructions/onDemand"}
           //path={"/instructions/onDemand"}
           handleClick={() => handleClick(file)}
         />
