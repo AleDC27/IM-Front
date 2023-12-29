@@ -89,7 +89,7 @@ export default function InstructionThree() {
           </>
         </div>
         <InstructionButton
-          helpText={t("instructions.button.i need help")}
+          //helpText={t("instructions.button.i need help")}
           text={t("instructions.button.continue")}
           path={"/instructions/onDemand"}
           //path={"/instructions/onDemand"}

@@ -79,7 +79,7 @@
     "manage current menu": "Gérez le menu actuel",
     "replace current menu": "Remplacer le menu actuel",
     "download menu template": "Téléchargez le modèle de menu",
-    "local logo": "Logo du local (bientôt)",
+    "local logo": "Logo du local",
     "menu item": {
       "category": "Catégorie",
       "products": "Produits",
@@ -192,5 +192,8 @@
       "text_1":"Vous ne l'avez pas encore",
       "text_2":"reçu des commandes"
     }
+  },
+  "button":{
+    "update":"Mise à jour"
   }
 }
