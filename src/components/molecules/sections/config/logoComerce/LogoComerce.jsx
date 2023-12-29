@@ -58,12 +58,12 @@ export default function LogoComerce() {
       setIsLoading(false); // Marca como no cargando, independientemente del resultado
     }
   };
-
+  console.log(imgURL);
   return (
     <section>
       <ContentRow justifyContent="center" width="80%">
       {isLoading && <Loading />} {/* Mostrar Loading mientras se espera respuesta */}
-        {!isLoading && !imgURL && <Title text={"Sin logo disponible"} />} {/* Mostrar Title si no hay imagen */}
+        {!isLoading && !imgURL && <Title text={"Sin logo disponible"} />}
         {!isLoading && imgURL && (
           <img
             src={imgURL}
@@ -93,7 +93,7 @@ export default function LogoComerce() {
           />
           <Button
             secondary
-            text={"enviar"}
+            text={t("button.update")}
             onClick={handleReplaceImage}
             size="big"
             loading={isLoading}
