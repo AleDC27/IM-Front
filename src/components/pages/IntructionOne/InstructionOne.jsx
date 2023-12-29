@@ -33,7 +33,7 @@ export default function InstructionOne() {
           />
         </div>
         <InstructionButton
-          helpText={t("instructions.button.i need help")}
+          //helpText={t("instructions.button.i need help")}
           text={t("instructions.button.continue")}
           path={"/instructions/uploadMenu"}
         />

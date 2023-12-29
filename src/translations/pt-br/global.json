@@ -79,7 +79,7 @@
     "manage current menu": "Gerenciar cardápio atual",
     "replace current menu": "Reemplazar cardápio atual",
     "download menu template": "Baixar modelo de cardápio",
-    "local logo": "Logo do local (breve)",
+    "local logo": "Logo do local",
     "menu item": {
       "category": "Categoria",
       "products": "Produtos",
@@ -191,5 +191,8 @@
       "text_1":"Non l'hai ancora fatto",
       "text_2":"ricevuto ordini"
     }
+  },
+  "button":{
+    "update":"Actualizar"
   }
 }

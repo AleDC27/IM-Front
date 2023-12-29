@@ -27,7 +27,7 @@ export default function MenuInstructionsBase() {
           <MenuStep light={true} number={4} text={t("instructions.steps.step_4")} />
         </div>
         <InstructionButton
-          helpText={t("instructions.button.i need help")}
+          //helpText={t("instructions.button.i need help")}
           text={t("instructions.button.continue")}
           path={"/instructions/download"}
         />

@@ -513,8 +513,10 @@ export default function InstructionTwo() {
     );
   };
    */
+  
 console.log(comercio)
   const formattedCommerce = () => {
+    let tablespordefecto=10;
     //! Agrego el nuevo formato de comercio con instrucciones actualizadas.
     let commerce = [{
       workSchedule: "09:00 a 17:00",
@@ -525,12 +527,12 @@ console.log(comercio)
       address: comercio[5].__EMPTY_2,
       city: comercio[5].__EMPTY_3,
       state: comercio[5].__EMPTY_4,
-      mesas: comercio[6].__EMPTY_2 || comercio[6].__EMPTY_1,
+      mesas: comercio[6].__EMPTY_2 || comercio[6].__EMPTY_1 || tablespordefecto ,
       firstNameEmployeer: comercio[8].__EMPTY_2 || comercio[8].__EMPTY_1,
       lastNameEmployeer: comercio[9].__EMPTY_2 || comercio[9].__EMPTY_1 ,
       phono: comercio[10].__EMPTY_2 || comercio[10].__EMPTY_1,
-      googleUserEmployeer: comercio[11].__EMPTY_2 || comercio[11].__EMPTY_1 ,
-      emailEmployeer:comercio[11].__EMPTY_2 || comercio[11].__EMPTY_1,
+      googleUserEmployeer: comercio[11].__EMPTY_2 || comercio[11].__EMPTY_1 ||comercio[10].__EMPTY_1 ,
+      emailEmployeer:comercio[11].__EMPTY_2 || comercio[11].__EMPTY_1 || comercio[10].__EMPTY_1,
       CP:"",
       country:"Argentina",
     }];
@@ -652,7 +654,7 @@ console.log(comercio)
     setComercio(null);
   };
 
-  const handleClick = () => {
+  const handleClick =  () => {
     formattedMenu();
     let comercioFormateado = formattedCommerce();
     // if (error) {
@@ -721,7 +723,7 @@ console.log(comercio)
           </>
         </div>
         <InstructionButton
-          helpText={t("instructions.button.i need help")}
+          //helpText={t("instructions.button.i need help")}
           text={t("instructions.button.continue")}
           path={menu && !error && "/instructions/image"}
           handleClick={handleClick}
