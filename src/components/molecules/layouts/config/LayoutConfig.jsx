@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import PaymentMethods from "../../sections/config/PaymentMethods/PaymentMethods";
 import PersonalData from "../../sections/config/personalData/PersonalData";
@@ -9,6 +9,7 @@ import s from "./layoutConfig.module.scss";
 import CartelPlanUno from "../../CartelPlanUno/CartelPlanUno";
 import CartelPlanDos from "../../cartelPlan2/CartelPlanDos";
 import Separator from "../../../atom/separator/Separator";
+import { useSelector } from "react-redux";
 
 export default function LayoutConfig() {
   const [t, i18n] = useTranslation("global");
@@ -17,6 +18,10 @@ export default function LayoutConfig() {
   const paymentData = t("config.select.payment methods");
   const localLogo = t("menu.local logo");
   const [selectedOption, setSelectedOption] = useState(personalData);
+  const commercialPlan = useSelector(
+    (state) => state.user_internal.commercialPlan
+  );
+  console.log(commercialPlan);
 
   const optionToComponent = {
     [t("config.select.personal data")]: <PersonalData />,
@@ -61,14 +66,13 @@ export default function LayoutConfig() {
         />
         <CartelPlanUno
           title={t("plan 1.cartel plan 1.title")}
-          text_1={'Podras configurar para cobrar a traves de mercado pago'}
+          text_1={"Podras configurar para cobrar a traves de mercado pago"}
           width={"90%"}
         />
         <Separator height={"10px"} />
-        <CartelPlanDos
-        title={"Pasar a plan 2"}
-        width={"90%"}
-        />
+        {commercialPlan === 1 ? (
+          <CartelPlanDos title={t("plan 2.Change to plan 2")} width={"90%"} />
+        ) : null}
       </section>
       {optionToComponent[selectedOption]}
     </div>

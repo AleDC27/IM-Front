@@ -182,7 +182,6 @@
     }
   },
   "plan 1":{
-
     "cartel plan 1":{
       "title":"Nous aurons bientôt plus de fonctionnalités",
       "text_1":"Vous pourrez voir des mesures importantes pour votre entreprise",
@@ -192,6 +191,9 @@
       "text_1":"Vous ne l'avez pas encore",
       "text_2":"reçu des commandes"
     }
+  },
+  "plan 2":{
+    "Change to plan 2":"Passer au plan 2"
   },
   "button":{
     "update":"Mise à jour"

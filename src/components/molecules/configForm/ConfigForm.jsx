@@ -7,6 +7,7 @@ import { Button } from "semantic-ui-react";
 import Separator from "../../atom/separator/Separator";
 import axios from "axios";
 import CryptoJS from "crypto-js";
+import { useTranslation } from "react-i18next";
 
 export default function ConfigFormMp({
   subTitle_text,
@@ -15,22 +16,24 @@ export default function ConfigFormMp({
   label_text_3,
   method,
 }) {
-  console.log(method)
+  console.log(method);
   const idMethod = method.id;
-const keysecret0 ="esta clave deveria venir por bodi";
+  const keysecret0 = "esta clave deveria venir por bodi";
+  const [isLoading,setLoading]=useState(false)
+  const [t, i18n] = useTranslation("global");
   const decrypt = (ciphertext) => {
     const bytes = CryptoJS.AES.decrypt(ciphertext, keysecret0);
     const originalValue = bytes.toString(CryptoJS.enc.Utf8);
     return originalValue;
   };
 
-    const [mp, setmp] = useState({
-    publicKey: method.publicKey? decrypt(method.publicKey) : "",
-    accesToken:method.accesToken? decrypt(method.accesToken) : "",
-    alias: method.alias? decrypt(method.alias) : "",
-    commerceId:method.commerceId
+  const [mp, setmp] = useState({
+    publicKey: method.publicKey ? decrypt(method.publicKey) : "",
+    accesToken: method.accesToken ? decrypt(method.accesToken) : "",
+    alias: method.alias ? decrypt(method.alias) : "",
+    commerceId: method.commerceId,
   });
-  console.log(mp)
+  console.log(mp);
 
   const handleInputChangePassword = (e) => {
     setmp({ ...mp, [e.target.name]: e.target.value });
@@ -40,34 +43,32 @@ const keysecret0 ="esta clave deveria venir por bodi";
     const ciphertext = CryptoJS.AES.encrypt(value, keysecret0).toString();
     return ciphertext;
   };
-  
+
   const HandleUpDateMp = async () => {
+    setLoading(true)
     try {
       const hashedMp = {
         publicKey: encrypt(mp.publicKey),
         accesToken: encrypt(mp.accesToken),
         alias: encrypt(mp.alias),
-        commerceId:method.commerceId
+        commerceId: method.commerceId,
       };
-/*       const hashedMp = {
-        publicKey: await bcrypt.hash(mp.publicKey, 10),
-        accesToken: await bcrypt.hash(mp.accesToken, 10),
-        alias: await bcrypt.hash(mp.alias, 10),
-        commerceId:method.commerceId
-      }; */
-      console.log(hashedMp);
-      const result = await axios.put(`payment/updateKeys/${idMethod}`,hashedMp);
-   /*    const params = new URLSearchParams(hashedMp);
 
-      const result = await axios.put(`payment/updateKeys/${idMethod}?${params.toString()}`);     */
+      console.log(hashedMp);
+      const result = await axios.put(
+        `payment/updateKeys/${idMethod}`,
+        hashedMp
+      );
       console.log("enviado");
       console.log("Datos enviados correctamente:", result.data);
+      setLoading(false)
     } catch (error) {
+      setLoading(false)
       console.log(error);
     }
   };
-  
-console.log(mp)
+
+  console.log(mp);
   return (
     <section>
       <SubTitle text={subTitle_text} />
@@ -88,18 +89,20 @@ console.log(mp)
           value={mp.publicKey}
           onChange={handleInputChangePassword}
         />
-{        <LabelInput
-          text={label_text_3}
-          placeholder={"Complete los campos"}
-          type="password"
-          name="alias"
-          value={mp.alias}
-          onChange={handleInputChangePassword}
-        />}
+        {
+          <LabelInput
+            text={label_text_3}
+            placeholder={"Complete los campos"}
+            type="password"
+            name="alias"
+            value={mp.alias}
+            onChange={handleInputChangePassword}
+          />
+        }
       </>
       <Separator height={"10px"} />
-      <Button primary type="submit" onClick={HandleUpDateMp}>
-        Guardar
+      <Button primary type="submit" onClick={HandleUpDateMp} loading={isLoading}>
+        {t("button.update")}
       </Button>
     </section>
   );
