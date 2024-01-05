@@ -194,6 +194,9 @@
     "text_1":"You haven't yet",
     "text_2":"received orders"
   },
+  "plan 2":{
+    "Change to plan 2":"Change to plan 2"
+  },
   "button":{
     "update":"Update"
   }

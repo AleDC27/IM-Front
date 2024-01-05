@@ -98,7 +98,7 @@ export default function LogoComerce() {
             size="big"
             loading={isLoading}
           >
-            Enviar
+            {t("button.update")}
           </Button>
         </ContentRow>
       )}

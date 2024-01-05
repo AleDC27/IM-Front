@@ -192,6 +192,9 @@
         "text_2":"ricevuto ordini"
       }
     },
+    "plan 2":{
+      "Change to plan 2":"Mudar para o plano 2"
+    },
     "button":{
       "update":"Actualizar"
     }
