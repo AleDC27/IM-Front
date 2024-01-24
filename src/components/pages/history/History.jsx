@@ -34,8 +34,8 @@ export default function History() {
                   width={"610px"}
                   height="140px"
                   title={t("plan 1.cartel plan 1.title")}
-                  text_1={t("plan 1.cartel plan 1.text_1")}
-                  text_2={t("plan 1.cartel plan 1.text_2")}
+                  text_1={t("plan 1.cartel plan 1.history_1")}
+                  text_2={t("plan 1.cartel plan 1.history_2")}
                   margin={"auto"}
                   marginBooton="10px"
                 />
