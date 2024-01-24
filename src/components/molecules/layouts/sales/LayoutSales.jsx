@@ -121,6 +121,8 @@ export function SalesChart({ week }) {
         columnWidth: "50%", // Ancho de las barras
         endingShape: "rounded", // Forma de las barras (puede ser "rounded", "flat", etc.)
         borderRadius: 18,
+        offsetY: 20, // Ajusta este valor según sea necesario para mover las barras más abajo
+        height: 0.10, // Ajusta este valor según sea necesario para reducir la altura de las barras
       },
     },
   };
@@ -138,6 +140,7 @@ export function SalesChart({ week }) {
       series={series}
       type="bar"
       className={s.apex}
+      width="100%" // Establece el ancho al 100% del contenedor
     />
   );
 }

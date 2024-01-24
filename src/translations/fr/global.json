@@ -185,7 +185,10 @@
     "cartel plan 1":{
       "title":"Nous aurons bientôt plus de fonctionnalités",
       "text_1":"Vous pourrez voir des mesures importantes pour votre entreprise",
-      "text_2":"Nous travaillons pour vous offrir un meilleur service"
+      "text_2":"Nous travaillons pour vous offrir un meilleur service",
+      "text_3":"Ici vous pourrez recevoir et gérer toutes les commandes de vos clients",
+      "history_1":"Ici vous pourrez voir l'historique de toutes vos commandes, vous pourrez",
+      "history_2":"Recherchez par date et filtrez au mieux en fonction de votre visionnage"
     },
     "history":{
       "text_1":"Vous ne l'avez pas encore",

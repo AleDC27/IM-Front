@@ -185,7 +185,10 @@
       "cartel plan 1":{
         "title":"Presto avremo più funzionalità",
         "text_1":"Vous pourrez voir des mesures importantes pour votre entreprise",
-        "text_2":"Nous travaillons pour vous offrir un meilleur service"
+        "text_2":"Nous travaillons pour vous offrir un meilleur service",
+        "text_3":"Qui potrai ricevere e gestire tutti gli ordini dei tuoi clienti",
+        "history_1":"Qui potrai vedere la cronologia di tutti i tuoi ordini, potrai farlo",
+        "history_2":"Cerca per data e filtra come meglio preferisci per la tua visualizzazione"
       },
       "history":{
         "text_1":"Non l'hai ancora fatto",
