@@ -185,7 +185,10 @@
     "cartel plan 1":{
       "title":"We will have more features soon",
       "text_1":"You will be able to see important metrics for your business",
-      "text_2":"We are working to provide you with a better service"
+      "text_2":"We are working to provide you with a better service",
+      "text_3":"Here you will be able to receive and manage all your clients' orders",
+      "history_1":"Here you will be able to see the history of all your orders, you will be able to",
+      "history_2":"Search by date and filter as best for your viewing"
     },
     "history":{
       "text_1":"Don't do it yet",

@@ -31,8 +31,8 @@ export default function OpenLocal() {
             <CartelPlanUno
               width={"610px"}
               title={t("plan 1.cartel plan 1.title")}
-              text_1={t("plan 1.cartel plan 1.text_1")}
-              text_2={t("plan 1.cartel plan 1.text_2")}
+              text_1={t("plan 1.cartel plan 1.text_3")}
+              //text_2={t("plan 1.cartel plan 1.text_2")}
               marginBooton="10px"
             />
             <Separator height="21px"/>

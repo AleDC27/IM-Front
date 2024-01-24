@@ -185,7 +185,10 @@
     "cartel plan 1":{
       "title":"Próximamente tendremos más funcionalidades",
       "text_1":"Podrás ver métricas importantes para tu negocio",
-      "text_2":"Estamos trabajando para brindarte un mejor servicio"
+      "text_2":"Estamos trabajando para brindarte un mejor servicio",
+      "text_3":"Aca vas a poder recibir y gestionar todos los pedido de tus clientes",
+      "history_1":"Aca vas a poder ver el historial de todos tus pedidos, los vas a poder",
+      "history_2":"buscar por fecha y filtrar como mejor te resulte para tu visualizacion"
     },
     "history":{
       "text_1":"Todavía no Has ",

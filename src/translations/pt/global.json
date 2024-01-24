@@ -185,7 +185,10 @@
       "cartel plan 1":{
         "title":"Teremos mais recursos em breve",
         "text_1":"Você poderá ver métricas importantes para o seu negócio",
-        "text_2":"Estamos trabalhando para lhe oferecer um melhor serviço"
+        "text_2":"Estamos trabalhando para lhe oferecer um melhor serviço",
+        "text_3":"Aqui você poderá receber e gerenciar todos os pedidos dos seus clientes",
+        "history_1":"Aqui você poderá ver o histórico de todos os seus pedidos, poderá",
+        "history_2":"Pesquise por data e filtre da melhor forma para sua visualização"
       },
       "history":{
         "text_1":"Non l'hai ancora fatto",

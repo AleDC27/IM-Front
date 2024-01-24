@@ -26,6 +26,7 @@
     }
 }
 
+
 .content_2 {
     width: 48%;
     height: 95%;
@@ -87,13 +88,13 @@
 /* .grafico {
 } */
 .apex {
-    display: flex;
+    //display: flex;
     //flex-grow: 1; // Añade esta línea
 
     >div {
         display: flex;
         //flex-grow: 1;
-        height: 90%;
+        //height: 90%;
     }
 }
 
