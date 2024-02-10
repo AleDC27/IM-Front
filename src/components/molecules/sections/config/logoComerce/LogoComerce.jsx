@@ -179,7 +179,7 @@ useEffect(() => {
   
         // Upload the image using fetch
         await fetch('https://tenkiweb.com/imenu/comercios/logos', {
-          method:'post',
+          method:'POST',
           body: formData,
         });
   
